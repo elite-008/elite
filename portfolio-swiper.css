@@ -1,0 +1,137 @@
+/* ./css/portfolio-swiper.css */
+
+/* Swiper 컨테이너의 기본 스타일 */
+.swiper {
+    width: 100%;
+    height: auto; /* 내용에 따라 높이 자동 조절 */
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* 각 '페이지' 역할을 하는 Swiper 슬라이드 스타일 */
+.swiper-slide {
+    text-align: center;
+    background: #fff; /* 슬라이드 배경색 */
+    display: flex;
+    flex-direction: column; /* 기본은 세로 정렬 */
+    justify-content: center;
+    align-items: center;
+    min-height: 420px; /* 데스크탑에서 슬라이드 전체 높이 최소값 설정 */
+    max-height: 550px; /* 데스크탑에서 슬라이드 전체 높이 최대값 설정 (너무 커지는 것 방지) */
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ★★★ 한 페이지 안에 있는 4장의 사진을 위한 그리드 컨테이너 스타일 ★★★ */
+.portfolio-grid {
+    display: flex;
+    flex-wrap: wrap; /* 사진이 넘치면 다음 줄로 */
+    justify-content: center; /* 사진들을 가운데 정렬 */
+    gap: 15px; /* 사진들 사이의 간격 */
+    width: 100%; /* 슬라이드 너비에 꽉 채움 */
+    padding: 20px; /* 내부 여백 */
+    box-sizing: border-box;
+    max-height: calc(100% - 40px); /* 슬라이드 패딩을 제외한 최대 높이 (내부 요소가 슬라이드를 넘지 않도록) */
+}
+
+/* ★★★ 각 포트폴리오 사진 스타일 (보유 장비 사진 크기에 맞춰 조정) ★★★ */
+.portfolio-grid img {
+    /* 데스크탑에서 2열로 배치되도록 너비 설정 */
+    width: calc(50% - 10px); /* 2개의 사진 + 15px 간격 계산 */
+    max-width: 400px; /* '보유 장비 소개' 사진의 최대 너비와 유사하게 조정 */
+    
+    /* 중요: 보유 장비 사진과 유사한 높이로 강제 조정 */
+    height: 250px; /* 이 높이값을 조절하여 보유 장비 사진과 더욱 유사하게 맞춰보세요. */
+    
+    /* 이미지의 가로세로 비율을 4:3으로 강제합니다. */
+    /* 만약 보유 장비 사진처럼 세로로 긴 사진도 있다면 'aspect-ratio'를 삭제하고 'object-fit: contain;'을 사용하거나, */
+    /* 사진의 실제 비율(예: 3/4)을 넣어보세요. 여기서는 4:3으로 유지했습니다. */
+    aspect-ratio: 4/3; 
+    object-fit: cover; /* 이미지가 박스를 꽉 채우도록 크롭 (사진의 일부가 잘릴 수 있습니다) */
+    /* 만약 사진이 잘리는 것이 싫고 빈 공간이 생겨도 괜찮다면 object-fit: contain; 으로 변경하세요. */
+
+    border-radius: 8px; /* 개별 사진의 모서리 둥글게 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 개별 사진 그림자 */
+    transition: transform 0.3s ease; /* 호버 시 효과 */
+}
+
+.portfolio-grid img:hover {
+    transform: scale(1.03); /* 호버 시 약간 확대 */
+}
+
+
+/* 페이지네이션 (점) 스타일 */
+.swiper-pagination-bullet {
+    background-color: #ccc;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #ffa726;
+}
+
+/* 네비게이션 버튼 (화살표) 스타일 */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #0d47a1;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    top: var(--swiper-navigation-top-offset, 50%); /* 중앙 정렬 */
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 24px;
+}
+
+/* 반응형 디자인 (태블릿 및 모바일) */
+@media (max-width: 768px) {
+    .swiper-slide { min-height: 380px; } /* 태블릿에서 슬라이드 전체 높이 조정 */
+    .portfolio-grid {
+        padding: 15px;
+        gap: 10px;
+    }
+    .portfolio-grid img {
+        width: calc(50% - 5px); /* 태블릿에서는 여전히 2열, 간격 조정 */
+        height: 180px; /* 태블릿에서 이미지 높이 조정 */
+        aspect-ratio: 4/3; 
+    }
+    .swiper-button-next, .swiper-button-prev { width: 40px; height: 40px; }
+    .swiper-button-next::after, .swiper-button-prev::after { font-size: 20px; }
+}
+
+@media (max-width: 480px) {
+    .swiper-slide { min-height: 300px; } /* 모바일에서 슬라이드 전체 높이 조정 */
+    .portfolio-grid {
+        padding: 10px;
+        gap: 8px;
+    }
+    .portfolio-grid img {
+        width: 20%; /* 모바일에서는 1열로 (한 페이지에 4장이 아래로 나열) */
+        max-width: none;
+        height: 50px; /* 모바일에서 이미지 높이 조정 */
+        aspect-ratio: 4/3; 
+    }
+    .swiper-button-next, .swiper-button-prev { display: none; } /* 모바일에서는 화살표 숨김 */
+}
+
+/* 작은 모바일 기기 (사진을 너무 작게 만들지 않기 위해 최소 높이 설정) */
+@media (max-width: 380px) {
+    .swiper-slide { min-height: 250px; }
+    .portfolio-grid img {
+        height: 160px; /* 더 작은 모바일 기기에서 이미지 높이 조정 */
+        aspect-ratio: 4/3; 
+    }
+}

@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>엘리트중기 - 소형 굴삭기 전문</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+
+    <style>
+        /* 기본 스타일 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #fff;
+            font-family: 'Noto Sans KR', sans-serif;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 2.8em;
+            color: #0d47a1;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ffa726;
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            color: #1976d2;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            font-size: 1em;
+            color: #555;
+        }
+
+        section {
+            padding: 80px 20px;
+            background-color: #fff;
+        }
+        
+        section + section {
+            margin-top: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px; /* 좌우 패딩 추가로 내용이 가장자리에 붙지 않도록 */
+        }
+
+        img {
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
+        /* 헤더 */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* 헤더에 그림자 추가 */
+        }
+
+        .main-header .logo {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #0d47a1;
+            font-size: 1.8em; /* 텍스트 로고 크기 */
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav ul li {
+            margin-bottom: 0;
+            margin-left: 30px;
+        }
+
+        .main-nav ul li:first-child {
+            margin-left: 0;
+        }
+
+        .main-nav ul li a {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #0d47a1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+        }
+        .main-nav ul li a:hover {
+            color: #ffa726;
+        }
+        .main-header .menu-toggle {
+            color: #2c3e50;
+            font-size: 1.8em;
+            cursor: pointer;
+            display: none; /* 기본적으로 숨김 (모바일에서만 표시) */
+        }
+
+        /* 히어로 섹션 */
+        .hero-section {
+            text-align: center;
+            padding: 100px 20px;
+            background-image: url('images/메인.jpg');
+            background-repeat: no-repeat;
+            background-position: center 75%;
+            background-size: cover;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* 40% 불투명한 검은색 오버레이 */
+            z-index: 1;
+        }
+
+        .hero-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section p {
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            margin-top: 30px;
+            background: #FF5722;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+
+        .btn-primary:hover {
+            background: #E64A19;
+        }
+
+        /* 섹션 공통 */
+        .section-description {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        /* 장비 섹션 */
+        .equipment-item {
+            margin-bottom: 60px;
+        }
+
+        .equipment-title {
+            color: #0d47a1;
+        }
+
+        /* 장비 섹션 추가 스타일 */
+        .equipment-detail {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+            align-items: center;
+            justify-content: center;
+        }
+        .equipment-slider-container {
+            flex: 1;
+            max-width: 450px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .equipment-slider-container .swiper-slide {
+            height: auto;
+            min-height: 250px;
+        }
+        .equipment-slider-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .equipment-info {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+        }
+        .equipment-info h4 {
+            color: #1976d2;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.3em;
+        }
+        .equipment-info ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        .equipment-info ul li {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 1.05em;
+        }
+        .reverse-on-mobile {
+            flex-direction: row-reverse;
+        }
+
+        /* 장비 제원 테이블 스타일 */
+        .equipment-spec-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto 10px;
+            border-collapse: collapse;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .equipment-spec-table th,
+        .equipment-spec-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .equipment-spec-table th {
+            background-color: #0d47a1;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        .equipment-spec-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .equipment-spec-table tr:hover {
+            background-color: #f0f8ff;
+        }
+
+        .table-note {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+            margin-bottom: 60px;
+        }
+
+        /* --- 포트폴리오 섹션 Swiper 스타일 --- */
+        .swiper {
+            width: 100%;
+            height: auto;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: auto;
+            max-height: none;
+            box-sizing: border-box;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .portfolio-grid a {
+            display: block;
+        }
+
+        .portfolio-grid img {
+            max-width: 90%;
+            height: auto;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin: 0 auto; /* 이미지를 중앙에 배치 */
+        }
+
+        .portfolio-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        .swiper-pagination-bullet {
+            background-color: #ccc;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #ffa726;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #0d47a1;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            top: var(--swiper-navigation-top-offset, 50%);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 24px;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #f8f8f8;
+            color: #555;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        footer p {
+            color: #555;
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            h3 {
+                font-size: 1.4em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+            
+            section {
+                padding: 60px 20px;
+                margin-bottom: 0;
+            }
+            section + section {
+                margin-top: 30px;
+            }
+
+            .main-header {
+                padding: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                z-index: 999;
+            }
+
+            .main-nav.show {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            .main-nav ul li {
+                margin-left: 0;
+                padding: 10px 20px;
+                border-bottom: 1px solid #eee;
+                text-align: center;
+            }
+
+            .main-nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            /* 장비 섹션 반응형 */
+            .equipment-detail {
+                flex-direction: column;
+            }
+            .equipment-info {
+                max-width: 100%;
+            }
+            .reverse-on-mobile {
+                flex-direction: column;
+            }
+            /* 모바일에서 장비 슬라이더 썸네일 크기 조정 */
+            .equipment-slider-container {
+                max-width: 100%;
+            }
+
+            /* 장비 제원 테이블 반응형 */
+            .equipment-spec-table {
+                font-size: 0.9em;
+                margin-left: auto;
+                margin-right: auto;
+                overflow-x: auto;
+                display: block;
+                white-space: nowrap;
+            }
+            .equipment-spec-table th,
+            .equipment-spec-table td {
+                padding: 10px;
+            }
+            .equipment-spec-table thead, .equipment-spec-table tbody, .equipment-spec-table tr {
+                display: block;
+            }
+            .equipment-spec-table tr {
+                margin-bottom: 10px;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            .equipment-spec-table td {
+                display: block;
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+            .equipment-spec-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: 600;
+                text-align: left;
+                color: #0d47a1;
+            }
+            .equipment-spec-table thead {
+                display: none;
+            }
+
+            /* 포트폴리오 반응형 (태블릿 및 모바일) */
+            .swiper-slide {
+                min-height: auto;
+            }
+            .portfolio-grid {
+                padding: 15px;
+                gap: 10px;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .portfolio-grid img {
+                height: auto;
+                aspect-ratio: 4/3;
+            }
+            .swiper-button-next, .swiper-button-prev { width: 40px; height: 40px; }
+            .swiper-button-next::after, .swiper-button-prev::after { font-size: 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .swiper-slide {
+                min-height: auto;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                padding: 10px;
+                gap: 8px;
+            }
+            .portfolio-grid img {
+                height: auto;
+                aspect-ratio: 4/3;
+            }
+            .swiper-button-next, .swiper-button-prev { display: none; }
+            .equipment-spec-table td {
+                padding-left: 10px;
+            }
+            .equipment-spec-table td::before {
+                width: 40%;
+                padding-left: 10px;
+            }
+        }
+
+        /* 작은 모바일 기기 (사진을 너무 작게 만들지 않기 위해 최소 높이 설정) */
+        @media (max-width: 480px) {
+            .swiper-slide { min-height: auto; }
+            .portfolio-grid img {
+                aspect-ratio: 4/3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container main-header">
+        <a href="index.html" class="logo">
+            엘리트중기
+        </a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#about">회사 소개</a></li>
+                <li><a href="#equipment">장비</a></li>
+                <li><a href="#portfolio">포트폴리오</a></li>
+                <li><a href="#contact">문의</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero-section">
+        <div class="container">
+            <h1>작은 공간도 명작으로, 엘리트중기의 손끝에서</h1>
+            <p>섬세한 기술력으로 최고의 가치를 창조합니다.</p>
+            <a href="#contact" class="btn-primary">무료 견적 문의하기</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>회사 소개</h2>
+            <p>
+                엘리트중기는 소형 굴삭기 전문 시공 업체로서,
+                다년간 축적된 현장 경험과 고도화된 장비 운용 능력을 바탕으로
+                고객에게 최적화된 시공 솔루션을 제공합니다.
+            </p>
+            <p>
+                우리는 좁은 공간, 복잡한 환경, 고난도 작업에서도 정밀도 높은 시공을 수행하며,
+                작업 전 과정에서 안전성과 효율성을 최우선으로 고려합니다. 실내 철거, 정밀 굴착,
+                지중 매설, 조경 및 제설 작업까지 다양한 프로젝트에 능동적으로 대응합니다.
+            </p>
+            <p>
+                숙련된 오퍼레이터와 최신 굴삭기 장비의 조합, 체계적인 공정 관리,
+                그리고 고객 중심의 커뮤니케이션을 통해, 단순한 시공을 넘어선
+                "완성도 높은 결과"를 약속드립니다. 엘리트중기는 언제나 믿고 맡길 수 있는
+                든든한 현장 파트너입니다.
+            </p>
+        </div>
+    </section>
+
+    <section id="equipment" class="section">
+        <div class="container">
+            <h2>보유 장비 소개</h2>
+            <p class="section-description">
+                엘리트중기가 보유한 첨단 소형 굴삭기는 어떤 현장에서도 최상의 효율과 정밀함을 선사합니다.
+            </p>
+
+            <div class="equipment-item" style="margin-bottom: 80px;">
+                <h3 class="equipment-title" style="text-align: center; margin-top: 20px;">
+                    장비별 출입 및 작업 제원
+                </h3>
+                <p class="section-description" style="margin-top: 10px; margin-bottom: 30px;">
+                    현장 진입 및 작업 효율을 위한 각 장비의 상세 제원입니다. (단위: mm, kg)
+                </p>
+                <table class="equipment-spec-table">
+                    <thead>
+                        <tr>
+                            <th>장비 모델</th>
+                            <th>최소 폭</th>
+                            <th>최대 폭</th>
+                            <th>총 중량</th>
+                            <th>최대 굴삭 높이</th>
+                            <th>굴삭 깊이</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="장비 모델">구보다 (Kubota) 008</td>
+                            <td data-label="최소 폭">680</td>
+                            <td data-label="최대 폭">840</td>
+                            <td data-label="총 중량">860kg</td>
+                            <td data-label="최대 굴삭 높이">2,775</td>
+                            <td data-label="굴삭 깊이">1,600</td>
+                        </tr>
+                        <tr>
+                            <td data-label="장비 모델">코벨코 (Kobelco) 017</td>
+                            <td data-label="최소 폭">950</td>
+                            <td data-label="최대 폭">1,280</td>
+                            <td data-label="총 중량">1,830kg</td>
+                            <td data-label="최대 굴삭 높이">3,700</td>
+                            <td data-label="굴삭 깊이">2,460</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="table-note">※ 상기 수치는 제원표에 따른 수치이며, 장비의 연식이나 옵션에 따라 실제 수치와 상이할 수 있으니 참고 바랍니다.</p>
+            </div>
+
+            <div class="equipment-item">
+                <h3 class="equipment-title">
+                    구보다 (Kubota) 008 미니 굴삭기
+                </h3>
+                <div class="equipment-detail">
+                    <div class="equipment-slider-container">
+                        <div class="swiper equipmentSwiper-kubota">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="images/equipment/1.jpg" data-lightbox="kubota-gallery">
+                                        <img src="images/equipment/1.jpg" alt="구보다 008 정면">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="images/equipment/2.jpg" data-lightbox="kubota-gallery">
+                                        <img src="images/equipment/2.jpg" alt="구보다 008 측면">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="images/equipment/3.jpg" data-lightbox="kubota-gallery">
+                                        <img src="images/equipment/3.jpg" alt="구보다 008 작업">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                    <div class="equipment-info">
+                        <h4>주요 특징</h4>
+                        <ul>
+                            <li>초소형 설계: 좁은 공간 및 실내 작업에 최적화</li>
+                            <li>가변 트랙: 좁은 통로 통과 용이 (680mm ~ 840mm 폭 조절)</li>
+                            <li>강력한 유압 시스템: 효율적인 굴착 및 작업 능력</li>
+                            <li>편리한 조작: 사용자 친화적인 인터페이스</li>
+                        </ul>
+                        <h4>주요 작업 분야</h4>
+                        <p>실내 철거, 정밀 굴착, 배관 공사, 조경 작업 등</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="equipment-item">
+                <h3 class="equipment-title">
+                    코벨코 (Kobelco) 017 미니 굴삭기
+                </h3>
+                <div class="equipment-detail reverse-on-mobile">
+                    <div class="equipment-info">
+                        <h4>주요 특징</h4>
+                        <ul>
+                            <li>제로 테일 스윙: 좁은 공간 안전 작업 (후방 회전 공간 최소화)</li>
+                            <li>가변 트랙: 좁은 통로 진입 및 안정성 확보 (950mm ~ 1,280mm 폭 조절)</li>
+                            <li>균형 잡힌 무게 중심: 안정적인 작업 성능</li>
+                            <li>다양한 어태치먼트: 폭넓은 작업 활용성</li>
+                        </ul>
+                        <h4>주요 작업 분야</h4>
+                        <p>도심지 공사, 건물 기초 공사, 옹벽 공사, 조경 작업 등</p>
+                    </div>
+                    <div class="equipment-slider-container">
+                        <div class="swiper equipmentSwiper-kobelco">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="images/equipment/5.jpg" data-lightbox="kobelco-gallery">
+                                        <img src="images/equipment/5.jpg" alt="코벨코 017 정면">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="images/equipment/6.jpg" data-lightbox="kobelco-gallery">
+                                        <img src="images/equipment/6.jpg" alt="코벨코 017 측면">
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                    <a href="images/equipment/7.jpg" data-lightbox="kobelco-gallery">
+                                        <img src="images/equipment/7.jpg" alt="코벨코 017 작업">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2>우리의 포트폴리오</h2>
+            <p class="section-description">
+                엘리트중기의 다양한 굴삭기 시공 사례를 통해 전문성과 노하우를 확인하세요.
+            </p>
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="portfolio-grid">
+                            <a href="images/portfolio/1.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/1.jpg" alt="시공사례 1" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/2.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/2.jpg" alt="시공사례 2" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/3.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/3.jpg" alt="시공사례 3" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/4.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/4.jpg" alt="시공사례 4" class="swiper-lazy">
+                            </a>
+                            <div class="swiper-lazy-preloader"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-grid">
+                            <a href="images/portfolio/5.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/5.jpg" alt="시공사례 5" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/6.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/6.jpg" alt="시공사례 6" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/7.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/7.jpg" alt="시공사례 7" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/8.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/8.jpg" alt="시공사례 8" class="swiper-lazy">
+                            </a>
+                            <div class="swiper-lazy-preloader"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-grid">
+                            <a href="images/portfolio/9.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/9.jpg" alt="시공사례 9" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/10.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/10.jpg" alt="시공사례 10" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/11.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/11.jpg" alt="시공사례 11" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/12.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/12.jpg" alt="시공사례 12" class="swiper-lazy">
+                            </a>
+                            <div class="swiper-lazy-preloader"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-grid">
+                            <a href="images/portfolio/13.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/13.jpg" alt="시공사례 13" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/14.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/14.jpg" alt="시공사례 14" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/15.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/15.jpg" alt="시공사례 15" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/16.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/16.jpg" alt="시공사례 16" class="swiper-lazy">
+                            </a>
+                            <div class="swiper-lazy-preloader"></div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="portfolio-grid">
+                            <a href="images/portfolio/17.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/17.jpg" alt="시공사례 17" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/18.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/18.jpg" alt="시공사례 18" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/19.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/19.jpg" alt="시공사례 195" class="swiper-lazy">
+                            </a>
+                            <a href="images/portfolio/20.jpg" data-lightbox="portfolio">
+                                <img src="images/portfolio/20.jpg" alt="시공사례 20" class="swiper-lazy">
+                            </a>
+                            <div class="swiper-lazy-preloader"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>문의하기</h2>
+            <p class="section-description">엘리트중기와 함께할 프로젝트가 있으시다면 언제든지 문의해주세요. 친절하고 신속하게 답변드리겠습니다.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center; text-align:center;">
+                <div style="background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); flex:1; min-width:280px;">
+                    <i class="fas fa-phone-alt" style="font-size:2.5em; color:#0d47a1; margin-bottom:15px;"></i>
+                    <h3>전화 문의</h3>
+                    <p style="font-size:1.4em; font-weight:bold; color:#0d47a1;">010-7738-2239</p>
+                    <p style="font-size:0.9em; color:#777;">언제든지 편하게 전화주세요.</p>
+                </div>
+                <div style="background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); flex:1; min-width:280px;">
+                    <i class="fas fa-envelope" style="font-size:2.5em; color:#0d47a1; margin-bottom:15px;"></i>
+                    <h3>이메일 문의</h3>
+                    <p style="font-size:1.1em; font-weight:bold; color:#0d47a1;">sadday00@naver.com</p>
+                    <p style="font-size:0.9em; color:#777;">자세한 내용은 이메일로 보내주세요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 엘리트중기. All Rights Reserved.</p>
+            <p style="font-size:0.9em; margin-top:10px;">주소: 경기도 고양시 일산서구 홀트로 66,302-3호(탄현동)</p>
+        </div>
+    </footer>
+    <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox-plus-jquery.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+
+            if (menuToggle && mainNav) {
+                menuToggle.addEventListener('click', function() {
+                    mainNav.classList.toggle('show');
+                });
+            }
+            // Swiper 초기화 (장비 섹션용)
+            const kubotaSwiper = new Swiper('.equipmentSwiper-kubota', {
+                loop: true,
+                pagination: {
+                    el: '.equipmentSwiper-kubota .swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+
+            const kobelcoSwiper = new Swiper('.equipmentSwiper-kobelco', {
+                loop: true,
+                pagination: {
+                    el: '.equipmentSwiper-kobelco .swiper-pagination',
+                    clickable: true,
+                },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+            });
+
+            // Swiper 초기화 (포트폴리오 섹션용)
+            const portfolioSwiper = new Swiper('.mySwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.mySwiper .swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.mySwiper .swiper-button-next',
+                    prevEl: '.mySwiper .swiper-button-prev',
+                },
+                lazy: {
+                    loadOnTransitionStart: true,
+                    loadPrevNext: true,
+                },
+            });
+        });
+    </script>
+</body>
+</html>

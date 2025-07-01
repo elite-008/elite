@@ -1,0 +1,256 @@
+/* 기본 스타일 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #f4fafd, #eef3f8);
+    color: #2c3e50;
+    line-height: 1.8;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #fff; /* hero 섹션의 h1에만 적용되도록 */
+}
+
+h2 {
+    font-size: 2.8em;
+    color: #0d47a1;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #ffa726;
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.6em;
+    color: #1976d2;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1em;
+    color: #444;
+}
+
+ul li {
+    margin-bottom: 8px;
+    font-size: 1em;
+    color: #555;
+}
+
+section {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+img {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 헤더 */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    position: relative; /* 모바일 메뉴 기준점 */
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #0d47a1;
+    text-decoration: none;
+}
+
+.menu-toggle {
+    font-size: 1.8em;
+    cursor: pointer;
+    display: none; /* 기본적으로 숨김 (PC 환경) */
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: #0d47a1;
+}
+
+/* 히어로 섹션 */
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: url('https://postfiles.pstatic.net/MjAyMzExMTNfMjcy/MDAxNzAwMDIwNjcwNTQy.m8iG54B13P99rL59H4dYp784C5iH9o6rU8y-d4eY5yEg.V03Y2P3v9J_T8G8D-2k8FqLgR5JkCj1k4sM2nN8hT2Mg.JPEG.rhinoz61/IMG_5744.jpeg?type=w966') no-repeat center center / cover;
+    color: #fff;
+    position: relative; /* 텍스트가 잘 보이도록 오버레이 추가 */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* 어두운 오버레이 */
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    color: #fff; /* hero 섹션의 p에만 적용되도록 */
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 30px;
+    background: #ffa726;
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: #e6911c;
+}
+
+/* 섹션 공통 */
+.section-description {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* 장비 섹션 */
+.equipment-item {
+    margin-bottom: 60px;
+}
+
+.equipment-title {
+    color: #0d47a1;
+}
+
+.equipment-detail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+}
+
+.equipment-img {
+    max-width: 400px;
+    width: 100%;
+}
+
+.equipment-text {
+    max-width: 600px;
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.4em;
+    }
+
+    p {
+        font-size: 1em;
+    }
+
+    .main-header {
+        padding: 15px 20px;
+    }
+
+    .menu-toggle {
+        display: block; /* 모바일에서 햄버거 버튼 보이기 */
+    }
+
+    .main-nav {
+        display: none; /* 기본적으로 숨김 */
+        position: absolute;
+        top: 65px; /* 헤더 높이에 따라 조절 */
+        left: 0;
+        width: 100%;
+        background-color: #f4fafd;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    .main-nav.show {
+        display: block; /* 'show' 클래스 추가 시 메뉴 보이기 */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .main-nav ul li {
+        padding: 10px 20px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+    }
+
+    .main-nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    .equipment-detail {
+        flex-direction: column; /* 모바일에서 이미지가 위에, 텍스트가 아래로 */
+        text-align: center;
+    }
+
+    .equipment-img {
+        margin-bottom: 20px;
+    }
+
+    .equipment-text ul {
+        text-align: left; /* ul의 텍스트는 왼쪽 정렬 유지 */
+        margin-left: 20px;
+    }
+}
